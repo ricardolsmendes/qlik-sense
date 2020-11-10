@@ -2,7 +2,7 @@ import logging
 import sys
 
 from requests_ntlm import HttpNtlmAuth
-from requests_negotiate_sspi import HttpNegotiateAuth
+# from requests_negotiate_sspi import HttpNegotiateAuth
 
 from qlik_sense.clients import base
 
@@ -34,7 +34,7 @@ class NTLMClient(base.Client):
             self._auth = HttpNtlmAuth(username=f'{domain}\\{username}', password=password)
         else:
             _logger.debug('__SET NTLM SSPI AUTH')
-            self._auth = HttpNegotiateAuth()
+            # self._auth = HttpNegotiateAuth()
 
     def _get_headers(self, xrf_key: str) -> dict:
         """
